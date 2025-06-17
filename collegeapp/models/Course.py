@@ -13,4 +13,4 @@ class Course(SafeDeleteModel):
     title = models.CharField(max_length=100)
     subject=models.CharField(max_length=100)
     duration=models.CharField(max_length=50)
-    # instructor=models.ForeignKey(InstructorProfile,on_delete=models.CASCADE,related_name='courses' )
+    instructor=models.ForeignKey(InstructorProfile,on_delete=models.CASCADE,related_name='courses' )
