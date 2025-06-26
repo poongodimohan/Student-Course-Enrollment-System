@@ -2,7 +2,7 @@ from safedelete import SOFT_DELETE
 from safedelete.models import SafeDeleteModel
 from django.db import models
 
-from collegeapp.models.Student import Student
+from collegeapp.models.Student import StudentProfile
 from collegeapp.models.Course import Course
 
 
@@ -15,7 +15,7 @@ class Enrollment(SafeDeleteModel):
         ('completed', 'Completed'),
     )
 
-    student=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='enrollment')
+    student=models.ForeignKey(StudentProfile,on_delete=models.CASCADE,related_name='enrollment')
     course=models.ForeignKey(Course,on_delete=models.CASCADE,related_name='enrollment')
     status=models.CharField(max_length=20,choices=STATUS_CHOICES,default='enrolled')
     created_at=models.DateTimeField(auto_now_add=True)

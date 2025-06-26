@@ -2,9 +2,7 @@ from django.db import models
 from safedelete import SOFT_DELETE
 from safedelete.models import SafeDeleteModel
 
-
-class InstructorProfile:
-    pass
+from collegeapp.models.InstructorProfile import InstructorProfile
 
 
 class Course(SafeDeleteModel):
@@ -13,4 +11,6 @@ class Course(SafeDeleteModel):
     title = models.CharField(max_length=100)
     subject=models.CharField(max_length=100)
     duration=models.CharField(max_length=50)
-    instructor=models.ForeignKey(InstructorProfile,on_delete=models.CASCADE,related_name='courses' )
+    instructor = models.ForeignKey(InstructorProfile, on_delete=models.CASCADE, related_name='courses',
+                                   null=True, blank=True)
+
